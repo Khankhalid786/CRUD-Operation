@@ -1,0 +1,28 @@
+<div class="container">
+    
+    <table class="table" *ngIf="allemployees.length>0">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Age</th>
+                <th scope="col">Salary</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of allemployees">
+            
+                <td>{{item.eName}}</td>
+                <td>{{item.eAge}}</td>
+                <td>{{item.eSalary}}</td>
+                <td><a href="" class="btn btn-primary" [routerLink]="['/employee/edit', item.id]">Edit</a>
+                <button type="button" (click)="deleteItem(item?.id)" class="btn btn-danger ms-2">Delete</button>
+                </td>
+                
+                
+            </tr>
+        </tbody>
+    </table>
+<div *ngIf="allemployees.length<=0"> no employee is available please create or add new </div>
+
+</div>
